@@ -1,0 +1,16 @@
+{
+  "name": "redux-auth-server",
+  "version": "0.0.0",
+  "description": "Server for Auth0-Redux example",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Auth0",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "express-jwt": "^3.4.0"
+  }
+}
