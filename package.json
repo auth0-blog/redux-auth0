@@ -1,19 +1,19 @@
 {
-  "name": "redux-real-world-example",
+  "name": "redux-auth0",
   "version": "0.0.0",
-  "description": "Redux real-world example",
+  "description": "Redux authentication example",
   "scripts": {
     "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/reactjs/redux.git"
+    "url": "https://github.com/auth0-blog/redux-auth0.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/reactjs/redux/issues"
+    "url": "https://github.com/auth0-blog/redux-auth0/issues"
   },
-  "homepage": "http://redux.js.org",
+  "homepage": "https://auth0.com",
   "dependencies": {
     "babel-polyfill": "^6.3.14",
     "humps": "^0.6.0",
