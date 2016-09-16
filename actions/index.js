@@ -18,7 +18,7 @@ function loginError(error) {
 }
 
 export function login() {
-  const lock = new Auth0Lock('AUTH0_CLIENT_ID', 'AUTH0_DOMAIN')
+  const lock = new Auth0Lock('mOh81XhUQvqeQ1uVY2yvgERpKKQjSKQr', 'unicodeveloper.auth0.com')
   return dispatch => {
     lock.show((error, profile, token) => {
       if(error) {
