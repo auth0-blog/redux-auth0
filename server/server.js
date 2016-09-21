@@ -43,7 +43,7 @@ var jedis = [
 ];
 
 app.get('/api/jedis', (req, res) => {
-  const allJedis = jedis.map(jedi => { 
+  const allJedis = jedis.map(jedi => {
     return { id: jedi.id, name: jedi.name }
   });
   res.json(allJedis);

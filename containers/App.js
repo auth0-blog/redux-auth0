@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { loadJedis, loadJedi, login, logout } from '../actions'
+import { loadJedis, loadJedi, login, doAuthentication, logout } from '../actions'
 import JedisList from '../components/JedisList'
 import Jedi from '../components/Jedi'
 import Auth from '../components/Auth'
@@ -12,20 +12,21 @@ class App extends Component {
     this.handleGetJediClick = this.handleGetJediClick.bind(this)
     this.handleLoginClick = this.handleLoginClick.bind(this)
     this.handleLogoutClick = this.handleLogoutClick.bind(this)
+    this.props.doAuthentication()
   }
 
   handleGetJedisClick() {
     this.props.loadJedis()
   }
-  
+
   handleGetJediClick(id) {
     this.props.loadJedi(id)
   }
-  
+
   handleLoginClick() {
     this.props.login()
   }
-  
+
   handleLogoutClick() {
     this.props.logout()
   }
@@ -37,7 +38,7 @@ class App extends Component {
         <div className="navbar navbar-default">
           <div className="container-fluid">
             <a className="navbar-brand">Redux Jedi</a>
-            <Auth 
+            <Auth
               isAuthenticated={isAuthenticated}
               profile={profile}
               onLoginClick={this.handleLoginClick}
@@ -79,5 +80,6 @@ export default connect(mapStateToProps, {
   loadJedis,
   loadJedi,
   login,
+  doAuthentication,
   logout
 })(App)

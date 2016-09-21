@@ -3,6 +3,8 @@ import { CALL_API } from '../middleware/api'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 export const LOGIN_ERROR = 'LOGIN_ERROR'
 
+const lock = new Auth0Lock('AUTH0_CLIENT_ID', 'AUTH0_DOMAIN')
+
 function loginSuccess(profile) {
   return {
     type: LOGIN_SUCCESS,
@@ -18,18 +20,12 @@ function loginError(error) {
 }
 
 export function login() {
-  const lock = new Auth0Lock('AUTH0_CLIENT_ID', 'AUTH0_DOMAIN')
+  // display the lock widget
   return dispatch => {
-    lock.show((error, profile, token) => {
-      if(error) {
-        return dispatch(loginError(error))
-      }
-      localStorage.setItem('profile', JSON.stringify(profile))
-      localStorage.setItem('id_token', token)
-      return dispatch(loginSuccess(profile))
-    })
+    lock.show();
   }
 }
+
 
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
 
@@ -85,4 +81,23 @@ export function loadJedi(id) {
   return dispatch => {
     return dispatch(fetchJedi(id))
   }
+}
+
+// Listen to authenticated event and get the profile of the user
+export function doAuthentication() {
+    return dispatch => {
+      lock.on("authenticated", function(authResult) {
+            lock.getProfile(authResult.idToken, function(error, profile) {
+
+              if (error) {
+                // handle error
+                return dispatch(loginError(error))
+              }
+
+              localStorage.setItem('profile', JSON.stringify(profile))
+              localStorage.setItem('id_token', authResult.idToken)
+              return dispatch(loginSuccess(profile))
+            });
+      });
+    }
 }
