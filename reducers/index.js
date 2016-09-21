@@ -9,17 +9,18 @@ function checkTokenExpiry() {
     let jwtExp = jwtDecode(jwt).exp;
     let expiryDate = new Date(0);
     expiryDate.setUTCSeconds(jwtExp);
-    
+
     if(new Date() < expiryDate) {
       return true;
     }
   }
-  return false;  
+  return false;
 }
 
 function getProfile() {
   return JSON.parse(localStorage.getItem('profile'));
 }
+
 
 function auth(state = {
     isAuthenticated: checkTokenExpiry(),
