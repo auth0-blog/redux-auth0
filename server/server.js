@@ -10,8 +10,8 @@ app.use(express.static('public'));
 // This middleware will check incoming requests for a valid
 // JWT on any routes that it is applied to.
 const authCheck = jwt({
-  secret: new Buffer('6ciafzROZr9eWWEKiMCsviPx1_fhp2QfEQqSHa1Cm9wGDthSfkXU7EZHUib6Vw3y', 'base64'),
-  audience: 'mOh81XhUQvqeQ1uVY2yvgERpKKQjSKQr'
+  secret: new Buffer('AUTH0_SECRET', 'base64'),
+  audience: 'AUTH0_CLIENT_ID'
 });
 
 var jedis = [
