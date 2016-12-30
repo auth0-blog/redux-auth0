@@ -10,7 +10,10 @@ app.use(express.static('public'));
 // This middleware will check incoming requests for a valid
 // JWT on any routes that it is applied to.
 const authCheck = jwt({
-  secret: new Buffer('AUTH0_SECRET', 'base64'),
+  secret: 'AUTH0_SECRET',
+  // If your Auth0 client was created before Dec 6, 2016,
+  // uncomment the line below and remove the line above
+  // secret: new Buffer('AUTH0_SECRET', 'base64'),
   audience: 'AUTH0_CLIENT_ID'
 });
 
