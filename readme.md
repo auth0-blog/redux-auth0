@@ -1,6 +1,6 @@
 # React + Redux + Auth0
 
-This repo goes along with the [tutorial at SitePoint]() and shows how to create a React + Redux app that calls an API and authenticates users with Auth0.
+This repo goes along with the [tutorial at SitePoint](https://www.sitepoint.com/redux-authentication-auth0/) and shows how to create a React + Redux app that calls an API and authenticates users with Auth0.
 
 ![single jedi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2016/06/1464890085redux-auth-7.png)
 
